@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    导航底部
+  </div>
 </template>
 
 <script>

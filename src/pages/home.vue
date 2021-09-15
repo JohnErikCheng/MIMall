@@ -1,5 +1,6 @@
 <template>
   <div>
+    Home
     <nav-footer></nav-footer>
     <router-view></router-view>
     <nav-header></nav-header>

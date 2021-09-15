@@ -1,5 +1,6 @@
 <template>
   <div>
+    Order
     <order-footer></order-footer>
     <router-view></router-view>
     <order-header></order-header>

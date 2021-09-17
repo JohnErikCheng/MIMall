@@ -2,24 +2,31 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from './pages/home.vue'
+import Index from './pages/index.vue'
 
 Vue.use(VueRouter)
 
+/**
+ * 编写路由规则注意点：
+ * 1、不要忘记加 redirect
+ * 2、children不要拼写错误
+ * 3、children中的path前面不要加 /
+ */
 const routes = [{
   path: '/',
   name: 'home',
   component: Home,
   redirect: '/index',
-  chidren: [{
+  children: [{
     path: '/index',
     name: 'index',
-    component: () => import('./pages/index.vue')
+    component: Index
   }, {
-    path: '/product',
+    path: 'product',
     name: 'product',
     component: () => import('./pages/product.vue')
   }, {
-    path: '/detail',
+    path: 'detail',
     name: 'detail',
     component: () => import('./pages/detail.vue')
   }]
@@ -27,29 +34,29 @@ const routes = [{
   path: '/order',
   name: 'order',
   component: () => import('./pages/order.vue'),
-  chidren: [{
-    path: '/orderList/:id',
-    name: 'orderList',
+  children: [{
+    path: 'orderList/:id',
+    name: 'order-list',
     props: true,
     component: () => import('./pages/orderList.vue')
   }, {
-    path: '/orderConfirm',
-    name: 'orderConfirm',
+    path: 'orderConfirm',
+    name: 'order-confirm',
     props: true,
     component: () => import('./pages/orderConfirm.vue')
   }, {
-    path: '/orderPay',
-    name: 'orderPay',
+    path: 'orderPay',
+    name: 'order-pay',
     component: () => import('./pages/orderPay.vue')
+  }, {
+    path: 'alipay',
+    name: 'alipay',
+    component: () => import('./pages/alipay.vue')
   }]
 }, {
   path: '/cart',
   name: 'cart',
   component: () => import('./pages/cart.vue')
-}, {
-  path: '/alipay',
-  name: 'alipay',
-  component: () => import('./pages/alipay.vue')
 }, {
   path: '/login',
   name: 'login',
